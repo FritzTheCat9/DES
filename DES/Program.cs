@@ -27,6 +27,12 @@ namespace DES
 
             Console.WriteLine(des.CodeBlocks("IEOFIT#1234", "IEOFIT#1"));                                       // c7	33	41	0a	d7	87	88	fe	d6	21	f4	92	05	e5	02	7e
             Console.WriteLine(des.DecodeBlocks("c733410ad78788fed621f49205e5027e", "IEOFIT#1"));                // IEOFIT#1 234                  49454f4649542331 3233340000000000
+
+
+            var coded = des.CodeBlocks("IEOFIT#1234", "IEOFIT#1");
+            var decoded = des.DecodeBlocks("c733410ad78788fed621f49205e5027e", "IEOFIT#1");
+            Console.WriteLine(des.AddPadding(coded, 16)); 
+            Console.WriteLine(des.AddPadding(decoded, 8));
             Console.ReadKey();
         }
     }

@@ -721,5 +721,22 @@ namespace DES
             var decodedBlocks = DecodeBlocks(codedText, key);
             return decodedBlocks;
         }
+
+        public string AddPadding(string text, int number)
+        {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < text.Length; i++)
+            {
+                if(i % number == 0 && i != 0)
+                {
+                    result.Append(" " + text[i]);
+                }
+                else
+                {
+                    result.Append(text[i]);
+                }
+            }
+            return result.ToString();
+        }
     }
 }
